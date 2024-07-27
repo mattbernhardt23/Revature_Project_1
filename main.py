@@ -1,8 +1,13 @@
 from models.user import User
 from models.inventory import Inventory
 from utils.book_shop import entering_book_shop
+import logging
+logger = logging.getLogger(__name__)
 
 def main():
+    logging.basicConfig(filename='myapp.log', level=logging.INFO)
+    logger.info('Started')
+    logger.info('Finished')
     user = User()   
 
     while user.username == "":
@@ -51,7 +56,9 @@ def main():
             print("3. View Inventory")
             print("4. Add to Inventory")
             print("5. View Stats")
-            print("6. Exit")
+            print("6. Get All Customers")
+            print("7. Get All Orders")
+            print("8. Exit")
             print("")
 
             choice = input("Enter your choice: ")
@@ -68,6 +75,10 @@ def main():
             elif choice == "5":
                 inventory.get_stats()
             elif choice == "6":
+                inventory.get_customers()
+            elif choice == "7":
+                inventory.get_all_orders()
+            elif choice == "8":
                 print("Goodbye!")
                 break
             else:

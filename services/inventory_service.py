@@ -1,12 +1,22 @@
 import os
 import mysql.connector
 from mysql.connector import Error
-import bcrypt
 from decimal import Decimal
 from tabulate import tabulate
 from dotenv import load_dotenv
+import logging
 
-load_dotenv()  # Load environment variables from .env file
+# Load environment variables from .env file
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log")
+    ]
+)
 
 db_config = {
     "host": os.environ.get("MYSQL_HOST"),
@@ -19,14 +29,15 @@ def get_inventory():
     try:
         # Connect to the MySQL database
         db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
 
         # Create a cursor object to execute SQL queries
         cursor = db.cursor()
 
         # Select all books from the inventory
         query = "SELECT product_id, title, author, year_published, description, sales_price, stock_quantity FROM inventory"
-    
         cursor.execute(query)
+        logging.info("Executed query to fetch inventory")
 
         # Fetch all the results
         books = cursor.fetchall()
@@ -35,12 +46,14 @@ def get_inventory():
         return books
 
     except Error as e:
-        print(f"Error: {e}")
+        logging.error(f"Error: {e}")
         return None
     finally:
         if db.is_connected():
             cursor.close()
             db.close()
+            logging.info("Closed the database connection")
+
 
 def buy_book(username):
     try:
@@ -48,6 +61,7 @@ def buy_book(username):
         
         # Connect to the MySQL database
         db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
 
         # Create a cursor object to execute SQL queries
         cursor = db.cursor()
@@ -55,6 +69,7 @@ def buy_book(username):
         # Select the book from the inventory
         query = "SELECT product_id, title, author, year_published, description, sales_price, stock_quantity FROM inventory WHERE product_id = %s"
         cursor.execute(query, (product_id,))
+        logging.info(f"Executed query to fetch book with product_id: {product_id}")
 
         # Fetch the result
         book = cursor.fetchone()
@@ -83,31 +98,31 @@ def buy_book(username):
                         VALUES (%s, %s, %s)
                          """
                     cursor.execute(insert_query, (username, product_id, total_price))
+                    logging.info("Executed insert query to add order")
 
-                    # Insert Into Orders Table
-                    order_query = "INSERT INTO orders (username, product_id, total_amount) VALUES (%s, %s, %s)"
-                    order_values = (username, product_id, total_price)
-                    # Execute the queries
-                    cursor.execute(order_query, order_values)
 
                     # Update Customers Table with New Account Balance
                     update_query = "UPDATE customers SET account_balance = account_balance - %s WHERE username = %s"
                     update_values = (total_price, username)
                     cursor.execute(update_query, update_values)
+                    logging.info("Executed update query to adjust customer account balance")
 
                     # Update the stock quantity
                     update_query = "UPDATE inventory SET stock_quantity = %s WHERE product_id = %s" 
                     update_values = (new_quantity, product_id)
                     cursor.execute(update_query, update_values)
+                    logging.info("Executed update query to adjust inventory stock quantity")
 
                     # Update Balance in Admin
                     update_query = "UPDATE customers SET account_balance = account_balance - %s WHERE admin = %s"
                     total_price = total_price * -1
                     update_values = (total_price, True)
                     cursor.execute(update_query, update_values)
+                    logging.info("Executed update query to adjust admin account balance")
 
                     # Commit the transaction
                     db.commit()
+                    logging.info("Transaction committed")
 
                     print("Purchase Successful!")
                     print("")
@@ -123,12 +138,14 @@ def buy_book(username):
             print("")
 
     except Error as e:
-        print(f"Error: {e}")
+        logging.error(f"Error: {e}")
         return None
     finally:
         if db.is_connected():
             cursor.close()
             db.close()
+            logging.info("Closed the database connection")
+
 
 def read_description(books):
     # Take Input from User Regarding Id of Book
@@ -144,10 +161,12 @@ def read_description(books):
         
     print("Book not found.")
 
+
 def add_book():
     try:
         # Connect to the MySQL database
         db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
 
         # Create a cursor object to execute SQL queries
         cursor = db.cursor()
@@ -161,7 +180,6 @@ def add_book():
         product_cost = Decimal(input("Enter the cost of the book: "))
         stock_quantity = int(input("Enter the stock quantity of the book: "))
 
-
         # Insert the book into the inventory
         query = """
             INSERT INTO inventory (title, author, year_published, description, sales_price, product_cost, stock_quantity)
@@ -171,24 +189,29 @@ def add_book():
 
         # Execute the query
         cursor.execute(query, values)
+        logging.info(f"Executed insert query to add book: {title}")
 
         # Commit the transaction
         db.commit()
+        logging.info("Transaction committed")
 
         print("Book added successfully!")
         print("")
 
     except Error as e:
-        print(f"Error: {e}")
+        logging.error(f"Error: {e}")
     finally:
         if db.is_connected():
             cursor.close()
-            db.close() 
+            db.close()
+            logging.info("Closed the database connection")
+
 
 def remove_book():
     try:
         # Connect to the MySQL database
         db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
 
         # Create a cursor object to execute SQL queries
         cursor = db.cursor()
@@ -199,15 +222,18 @@ def remove_book():
         # Check if the book exists
         query = "SELECT * FROM inventory WHERE product_id = %s"
         cursor.execute(query, (product_id,))
+        logging.info(f"Executed select query to check if book with product_id: {product_id} exists")
         book = cursor.fetchone()
 
         if book:
             # Delete the book from the inventory
             delete_query = "DELETE FROM inventory WHERE product_id = %s"
             cursor.execute(delete_query, (product_id,))
+            logging.info(f"Executed delete query to remove book with product_id: {product_id}")
 
             # Commit the transaction
             db.commit()
+            logging.info("Transaction committed")
 
             print("Book removed successfully!")
             print("")
@@ -216,16 +242,19 @@ def remove_book():
             print("")
 
     except Error as e:
-        print(f"Error: {e}")
+        logging.error(f"Error: {e}")
     finally:
         if db.is_connected():
             cursor.close()
-            db.close()  
+            db.close()
+            logging.info("Closed the database connection")
+
 
 def add_to_inventory():
     try:
         # Connect to the MySQL database
         db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
 
         # Create a cursor object to execute SQL queries
         cursor = db.cursor()
@@ -236,6 +265,7 @@ def add_to_inventory():
         # Check if the book exists
         query = "SELECT * FROM inventory WHERE product_id = %s"
         cursor.execute(query, (product_id,))
+        logging.info(f"Executed select query to check if book with product_id: {product_id} exists")
         book = cursor.fetchone()
 
         if book:
@@ -249,9 +279,11 @@ def add_to_inventory():
 
             # Execute the query
             cursor.execute(update_query, update_values)
+            logging.info(f"Executed update query to add {quantity} to stock of book with product_id: {product_id}")
 
             # Commit the transaction
             db.commit()
+            logging.info("Transaction committed")
 
             print("Stock added successfully!")
             print("")
@@ -260,11 +292,13 @@ def add_to_inventory():
             print("")
 
     except Error as e:
-        print(f"Error: {e}")
+        logging.error(f"Error: {e}")
     finally:
         if db.is_connected():
             cursor.close()
             db.close()
+            logging.info("Closed the database connection")
+
 
 def print_inventory(books):
     # Extract only the title, author, and price from the books data
@@ -275,10 +309,12 @@ def print_inventory(books):
     print(tabulate(book_data, headers=headers, floatfmt=".2f", tablefmt="pretty"))
     print("")
 
+
 def get_stats():
     try:
         # Connect to the MySQL database
         db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
 
         # Create a cursor object to execute SQL queries
         cursor = db.cursor()
@@ -286,21 +322,25 @@ def get_stats():
         # Get the total sales
         total_sales_query = "SELECT SUM(total_amount) FROM orders"
         cursor.execute(total_sales_query)
+        logging.info("Executed query to get total sales")
         total_sales = cursor.fetchone()[0]
 
         # Get the total number of orders
         total_orders_query = "SELECT COUNT(*) FROM orders"
         cursor.execute(total_orders_query)
+        logging.info("Executed query to get total number of orders")
         total_orders = cursor.fetchone()[0]
 
         # Get the total number of customers
         total_customers_query = "SELECT COUNT(*) FROM customers"
         cursor.execute(total_customers_query)
+        logging.info("Executed query to get total number of customers")
         total_customers = cursor.fetchone()[0]
 
         # Get the total number of books in the inventory
         total_books_query = "SELECT SUM(stock_quantity) FROM inventory"
         cursor.execute(total_books_query)
+        logging.info("Executed query to get total number of books in inventory")
         total_books = cursor.fetchone()[0]
 
         # Return the Top 5 Selling Books
@@ -313,11 +353,13 @@ def get_stats():
             LIMIT 5
         """
         cursor.execute(top_books_query)
+        logging.info("Executed query to get top 5 selling books")
         top_books = cursor.fetchall()
 
         # Get the total amount of money in the inventory
         total_inventory_query = "SELECT SUM(sales_price * stock_quantity) FROM inventory"
         cursor.execute(total_inventory_query)
+        logging.info("Executed query to get total inventory value")
         total_inventory = cursor.fetchone()[0]
 
         # Print the statistics
@@ -331,8 +373,84 @@ def get_stats():
         print("")
 
     except Error as e:
-        print(f"Error: {e}")
+        logging.error(f"Error: {e}")
     finally:
         if db.is_connected():
             cursor.close()
             db.close()
+            logging.info("Closed the database connection")
+
+
+def get_customers():
+    try:
+        # Connect to the MySQL database
+        db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
+
+        # Create a cursor object to execute SQL queries
+        cursor = db.cursor()
+
+        # Get all the customers
+        query = "SELECT username, account_balance FROM customers"
+        cursor.execute(query)
+        logging.info("Executed query to get all customers")
+        customers = cursor.fetchall()
+
+        # Get the Number of Orders and Total Amount Spent for Each Customer
+        for i, customer in enumerate(customers):
+            orders_query = """
+            SELECT COUNT(*), SUM(total_amount)
+            FROM orders
+            WHERE username = %s
+            """
+            cursor.execute(orders_query, (customer[0],))
+            logging.info(f"Executed query to get number of orders and total amount spent for customer: {customer[0]}")
+            result = cursor.fetchone()
+            num_orders = result[0]
+            total_spent = result[1] if result[1] is not None else 0  # Handle NULL total_amount case
+            customers[i] = (customer[0], customer[1], num_orders, total_spent)
+
+
+        # Print the customers
+        print(tabulate(customers, headers=["Username", "Account Balance", "Number of Purchases", "Total Amount Spent"], floatfmt=".2f", tablefmt="pretty"))
+        print("")
+
+    except Error as e:
+        logging.error(f"Error: {e}")
+    finally:
+        if db.is_connected():
+            cursor.close()
+            db.close()
+            logging.info("Closed the database connection")
+
+
+def get_all_orders():
+    try:
+        # Connect to the MySQL database
+        db = mysql.connector.connect(**db_config)
+        logging.info("Connected to the database")
+
+        # Create a cursor object to execute SQL queries
+        cursor = db.cursor()
+
+        # Get all the orders
+        query = """
+            SELECT orders.order_id, orders.username, inventory.title, orders.total_amount
+            FROM orders
+            JOIN inventory ON orders.product_id = inventory.product_id
+        """
+        cursor.execute(query)
+        logging.info("Executed query to get all orders")
+        orders = cursor.fetchall()
+
+        # Print the orders
+        print(tabulate(orders, headers=["Order Id", "Username", "Title", "Total Amount"], floatfmt=".2f", tablefmt="pretty"))
+        print("")
+
+    except Error as e:
+        logging.error(f"Error: {e}")
+    finally:
+        if db.is_connected():
+            cursor.close()
+            db.close()
+            logging.info("Closed the database connection")

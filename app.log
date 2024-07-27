@@ -1,0 +1,201 @@
+2024-07-26 13:39:18,619 - INFO - Started
+2024-07-26 13:39:18,620 - INFO - Finished
+2024-07-26 13:39:20,804 - INFO - package: mysql.connector.plugins
+2024-07-26 13:39:20,804 - INFO - plugin_name: caching_sha2_password
+2024-07-26 13:39:20,805 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 13:39:20,813 - INFO - Connected to the database for user sign-in
+2024-07-26 13:42:20,459 - INFO - Executed query to sign in user: Hugo22
+2024-07-26 13:42:20,803 - INFO - User signed in successfully: Hugo22
+2024-07-26 13:42:20,804 - INFO - Closed the database connection after user sign-in
+2024-07-26 13:42:20,939 - INFO - Connected to the database
+2024-07-26 13:42:20,941 - INFO - Executed query to fetch inventory
+2024-07-26 13:42:20,942 - INFO - Closed the database connection
+2024-07-26 13:42:21,074 - INFO - Connected to the database to get account balance
+2024-07-26 13:42:21,077 - INFO - Executed query to get account balance for user: Hugo22
+2024-07-26 13:42:21,079 - INFO - Closed the database connection after getting account balance
+2024-07-26 13:44:30,551 - INFO - Started
+2024-07-26 13:44:30,551 - INFO - Finished
+2024-07-26 13:44:32,241 - INFO - package: mysql.connector.plugins
+2024-07-26 13:44:32,241 - INFO - plugin_name: caching_sha2_password
+2024-07-26 13:44:32,241 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 13:44:32,244 - INFO - Connected to the database for user registration
+2024-07-26 14:05:10,120 - INFO - Started
+2024-07-26 14:05:10,122 - INFO - Finished
+2024-07-26 14:05:12,283 - INFO - package: mysql.connector.plugins
+2024-07-26 14:05:12,283 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:05:12,283 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:05:12,290 - INFO - Connected to the database for user sign-in
+2024-07-26 14:05:16,986 - INFO - Executed query to sign in user: HugosBoss
+2024-07-26 14:05:17,308 - INFO - User signed in successfully: HugosBoss
+2024-07-26 14:05:17,308 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:05:17,454 - INFO - Connected to the database
+2024-07-26 14:05:17,455 - INFO - Executed query to fetch inventory
+2024-07-26 14:05:17,457 - INFO - Closed the database connection
+2024-07-26 14:05:21,573 - INFO - Connected to the database
+2024-07-26 14:05:21,575 - INFO - Executed query to get all customers
+2024-07-26 14:05:21,577 - INFO - Closed the database connection
+2024-07-26 14:07:08,632 - INFO - Started
+2024-07-26 14:07:08,632 - INFO - Finished
+2024-07-26 14:07:10,678 - INFO - package: mysql.connector.plugins
+2024-07-26 14:07:10,678 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:07:10,678 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:07:10,687 - INFO - Connected to the database for user sign-in
+2024-07-26 14:07:16,622 - INFO - Executed query to sign in user: HugosBoss
+2024-07-26 14:07:16,957 - INFO - User signed in successfully: HugosBoss
+2024-07-26 14:07:16,958 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:07:17,081 - INFO - Connected to the database
+2024-07-26 14:07:17,082 - INFO - Executed query to fetch inventory
+2024-07-26 14:07:17,084 - INFO - Closed the database connection
+2024-07-26 14:08:06,253 - INFO - Started
+2024-07-26 14:08:06,253 - INFO - Finished
+2024-07-26 14:08:08,157 - INFO - package: mysql.connector.plugins
+2024-07-26 14:08:08,157 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:08:08,157 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:08:08,164 - INFO - Connected to the database for user sign-in
+2024-07-26 14:08:12,873 - INFO - Executed query to sign in user: HugosBoss
+2024-07-26 14:08:13,197 - INFO - User signed in successfully: HugosBoss
+2024-07-26 14:08:13,197 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:08:13,326 - INFO - Connected to the database
+2024-07-26 14:08:13,329 - INFO - Executed query to fetch inventory
+2024-07-26 14:08:13,330 - INFO - Closed the database connection
+2024-07-26 14:08:17,787 - INFO - Connected to the database
+2024-07-26 14:08:17,795 - INFO - Executed query to get all orders
+2024-07-26 14:08:17,798 - INFO - Closed the database connection
+2024-07-26 14:12:06,758 - INFO - Connected to the database
+2024-07-26 14:12:06,761 - INFO - Executed query to get all customers
+2024-07-26 14:12:06,762 - INFO - Closed the database connection
+2024-07-26 14:12:12,435 - INFO - Started
+2024-07-26 14:12:12,435 - INFO - Finished
+2024-07-26 14:12:14,058 - INFO - package: mysql.connector.plugins
+2024-07-26 14:12:14,059 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:12:14,059 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:12:14,072 - INFO - Connected to the database for user sign-in
+2024-07-26 14:12:20,103 - INFO - Executed query to sign in user: NewHugo
+2024-07-26 14:12:20,451 - INFO - User signed in successfully: NewHugo
+2024-07-26 14:12:20,451 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:12:20,585 - INFO - Connected to the database
+2024-07-26 14:12:20,586 - INFO - Executed query to fetch inventory
+2024-07-26 14:12:20,587 - INFO - Closed the database connection
+2024-07-26 14:12:20,707 - INFO - Connected to the database to get account balance
+2024-07-26 14:12:20,711 - INFO - Executed query to get account balance for user: NewHugo
+2024-07-26 14:12:20,713 - INFO - Closed the database connection after getting account balance
+2024-07-26 14:12:26,865 - INFO - Connected to the database
+2024-07-26 14:12:26,871 - INFO - Executed query to fetch book with product_id: 11
+2024-07-26 14:12:28,745 - INFO - Executed insert query to add order
+2024-07-26 14:12:28,748 - INFO - Executed update query to adjust customer account balance
+2024-07-26 14:12:28,753 - INFO - Executed update query to adjust inventory stock quantity
+2024-07-26 14:12:28,755 - INFO - Executed update query to adjust admin account balance
+2024-07-26 14:12:28,759 - INFO - Transaction committed
+2024-07-26 14:12:28,760 - INFO - Closed the database connection
+2024-07-26 14:12:32,256 - INFO - Connected to the database
+2024-07-26 14:12:32,259 - INFO - Executed query to fetch book with product_id: 20
+2024-07-26 14:12:33,547 - INFO - Executed insert query to add order
+2024-07-26 14:12:33,553 - INFO - Executed update query to adjust customer account balance
+2024-07-26 14:12:33,554 - INFO - Executed update query to adjust inventory stock quantity
+2024-07-26 14:12:33,555 - INFO - Executed update query to adjust admin account balance
+2024-07-26 14:12:33,558 - INFO - Transaction committed
+2024-07-26 14:12:33,558 - INFO - Closed the database connection
+2024-07-26 14:12:41,324 - INFO - Connected to the database
+2024-07-26 14:12:41,326 - INFO - Executed query to fetch book with product_id: 22
+2024-07-26 14:12:42,638 - INFO - Executed insert query to add order
+2024-07-26 14:12:42,639 - INFO - Executed update query to adjust customer account balance
+2024-07-26 14:12:42,641 - INFO - Executed update query to adjust inventory stock quantity
+2024-07-26 14:12:42,643 - INFO - Executed update query to adjust admin account balance
+2024-07-26 14:12:42,647 - INFO - Transaction committed
+2024-07-26 14:12:42,648 - INFO - Closed the database connection
+2024-07-26 14:12:46,428 - INFO - Connected to the database
+2024-07-26 14:12:46,430 - INFO - Executed query to fetch book with product_id: 3
+2024-07-26 14:12:47,730 - INFO - Executed insert query to add order
+2024-07-26 14:12:47,732 - INFO - Executed update query to adjust customer account balance
+2024-07-26 14:12:47,734 - INFO - Executed update query to adjust inventory stock quantity
+2024-07-26 14:12:47,736 - INFO - Executed update query to adjust admin account balance
+2024-07-26 14:12:47,739 - INFO - Transaction committed
+2024-07-26 14:12:47,740 - INFO - Closed the database connection
+2024-07-26 14:12:56,517 - INFO - Connected to the database
+2024-07-26 14:12:56,521 - INFO - Executed query to fetch book with product_id: 5
+2024-07-26 14:12:58,233 - INFO - Executed insert query to add order
+2024-07-26 14:12:58,237 - INFO - Executed update query to adjust customer account balance
+2024-07-26 14:12:58,238 - INFO - Executed update query to adjust inventory stock quantity
+2024-07-26 14:12:58,239 - INFO - Executed update query to adjust admin account balance
+2024-07-26 14:12:58,243 - INFO - Transaction committed
+2024-07-26 14:12:58,244 - INFO - Closed the database connection
+2024-07-26 14:13:00,407 - INFO - Connected to the database to get account balance
+2024-07-26 14:13:00,410 - INFO - Executed query to get account balance for user: NewHugo
+2024-07-26 14:13:00,410 - INFO - Closed the database connection after getting account balance
+2024-07-26 14:13:03,585 - INFO - Connected to the database to get user library
+2024-07-26 14:13:03,594 - INFO - Executed query to get library for user: NewHugo
+2024-07-26 14:13:03,594 - INFO - Closed the database connection after getting library
+2024-07-26 14:13:03,786 - INFO - Connected to the database to get account balance
+2024-07-26 14:13:03,787 - INFO - Executed query to get account balance for user: NewHugo
+2024-07-26 14:13:03,788 - INFO - Closed the database connection after getting account balance
+2024-07-26 14:13:12,308 - INFO - Started
+2024-07-26 14:13:12,309 - INFO - Finished
+2024-07-26 14:13:14,496 - INFO - package: mysql.connector.plugins
+2024-07-26 14:13:14,496 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:13:14,497 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:13:14,501 - INFO - Connected to the database for user sign-in
+2024-07-26 14:13:19,082 - INFO - Executed query to sign in user: HugosBoss
+2024-07-26 14:13:19,418 - INFO - User signed in successfully: HugosBoss
+2024-07-26 14:13:19,419 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:13:19,553 - INFO - Connected to the database
+2024-07-26 14:13:19,556 - INFO - Executed query to fetch inventory
+2024-07-26 14:13:19,557 - INFO - Closed the database connection
+2024-07-26 14:13:23,472 - INFO - Connected to the database
+2024-07-26 14:13:23,476 - INFO - Executed query to get all orders
+2024-07-26 14:13:23,478 - INFO - Closed the database connection
+2024-07-26 14:13:35,820 - INFO - Connected to the database
+2024-07-26 14:13:35,821 - INFO - Executed query to get total sales
+2024-07-26 14:13:35,826 - INFO - Executed query to get total number of orders
+2024-07-26 14:13:35,831 - INFO - Executed query to get total number of customers
+2024-07-26 14:13:35,832 - INFO - Executed query to get total number of books in inventory
+2024-07-26 14:13:35,834 - INFO - Executed query to get top 5 selling books
+2024-07-26 14:13:35,835 - INFO - Executed query to get total inventory value
+2024-07-26 14:13:35,836 - INFO - Closed the database connection
+2024-07-26 14:13:56,667 - INFO - Connected to the database
+2024-07-26 14:13:56,669 - INFO - Executed query to get all customers
+2024-07-26 14:13:56,671 - INFO - Closed the database connection
+2024-07-26 14:15:28,662 - INFO - Started
+2024-07-26 14:15:28,662 - INFO - Finished
+2024-07-26 14:15:31,219 - INFO - package: mysql.connector.plugins
+2024-07-26 14:15:31,219 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:15:31,219 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:15:31,223 - INFO - Connected to the database for user sign-in
+2024-07-26 14:15:34,391 - INFO - Executed query to sign in user: HugosBoss
+2024-07-26 14:15:34,712 - INFO - User signed in successfully: HugosBoss
+2024-07-26 14:15:34,713 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:15:34,833 - INFO - Connected to the database
+2024-07-26 14:15:34,834 - INFO - Executed query to fetch inventory
+2024-07-26 14:15:34,835 - INFO - Closed the database connection
+2024-07-26 14:15:38,928 - INFO - Connected to the database
+2024-07-26 14:15:38,929 - INFO - Executed query to get all customers
+2024-07-26 14:15:38,932 - INFO - Executed query to get number of orders for customer: NewHugo
+2024-07-26 14:15:38,933 - INFO - Executed query to get number of orders for customer: HugosBoss
+2024-07-26 14:15:38,934 - INFO - Executed query to get number of orders for customer: Hugo22
+2024-07-26 14:15:38,935 - INFO - Closed the database connection
+2024-07-26 14:17:26,697 - INFO - Started
+2024-07-26 14:17:26,697 - INFO - Finished
+2024-07-26 14:17:28,232 - INFO - package: mysql.connector.plugins
+2024-07-26 14:17:28,232 - INFO - plugin_name: caching_sha2_password
+2024-07-26 14:17:28,232 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2024-07-26 14:17:28,233 - INFO - Connected to the database for user sign-in
+2024-07-26 14:17:32,771 - INFO - Executed query to sign in user: HugosBoss
+2024-07-26 14:17:33,110 - INFO - User signed in successfully: HugosBoss
+2024-07-26 14:17:33,111 - INFO - Closed the database connection after user sign-in
+2024-07-26 14:17:33,243 - INFO - Connected to the database
+2024-07-26 14:17:33,246 - INFO - Executed query to fetch inventory
+2024-07-26 14:17:33,248 - INFO - Closed the database connection
+2024-07-26 14:17:38,138 - INFO - Connected to the database
+2024-07-26 14:17:38,139 - INFO - Executed query to get all customers
+2024-07-26 14:17:38,142 - INFO - Executed query to get number of orders and total amount spent for customer: NewHugo
+2024-07-26 14:17:38,144 - INFO - Executed query to get number of orders and total amount spent for customer: HugosBoss
+2024-07-26 14:17:38,145 - INFO - Executed query to get number of orders and total amount spent for customer: Hugo22
+2024-07-26 14:17:38,147 - INFO - Closed the database connection
+2024-07-26 14:19:23,158 - INFO - Connected to the database
+2024-07-26 14:19:23,160 - INFO - Executed query to get all customers
+2024-07-26 14:19:23,165 - INFO - Executed query to get number of orders and total amount spent for customer: NewHugo
+2024-07-26 14:19:23,166 - INFO - Executed query to get number of orders and total amount spent for customer: HugosBoss
+2024-07-26 14:19:23,167 - INFO - Executed query to get number of orders and total amount spent for customer: Hugo22
+2024-07-26 14:19:23,168 - INFO - Closed the database connection
+2024-07-26 14:19:42,066 - INFO - Connected to the database
+2024-07-26 14:19:42,068 - INFO - Executed query to get all orders
+2024-07-26 14:19:42,069 - INFO - Closed the database connection

@@ -26,8 +26,8 @@ CREATE TABLE orders (
 CREATE TABLE customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
-    admin BOOLEAN DEFAULT FALSE,
     password VARCHAR(255) NOT NULL,
+    admin BOOLEAN DEFAULT FALSE,
     account_balance DECIMAL(10, 2) NOT NULL DEFAULT 0
 );
 

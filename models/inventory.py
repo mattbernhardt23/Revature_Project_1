@@ -33,3 +33,9 @@ class Inventory:
     
     def get_stats(self):
         return inventory_service.get_stats()
+    
+    def get_customers(self):
+        return inventory_service.get_customers()
+    
+    def get_all_orders(self):
+        return inventory_service.get_all_orders()
