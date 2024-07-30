@@ -18,6 +18,7 @@ logging.basicConfig(
     ]
 )
 
+# Database configuration
 db_config = {
     "host": os.environ.get("MYSQL_HOST"),
     "user": os.environ.get("MYSQL_USER"),
@@ -25,6 +26,8 @@ db_config = {
     "database": os.environ.get("MYSQL_DB")
 }
 
+# Retrieves Inventory from Database
+# Returns: List of Tuples
 def get_inventory():
     try:
         # Connect to the MySQL database
@@ -54,7 +57,7 @@ def get_inventory():
             db.close()
             logging.info("Closed the database connection")
 
-
+# Allows User to Purchase Books
 def buy_book(username):
     try:
         product_id = int(input("Enter the Id of the book you want to buy: "))
@@ -146,7 +149,7 @@ def buy_book(username):
             db.close()
             logging.info("Closed the database connection")
 
-
+# Allows Users to Read Book Descrpition while Inside Book Store
 def read_description(books):
     # Take Input from User Regarding Id of Book
     product_id = int(input("Enter the Id of the book you want to read the description of: "))
@@ -161,7 +164,7 @@ def read_description(books):
         
     print("Book not found.")
 
-
+# Admin Function: Add book to Inventory
 def add_book():
     try:
         # Connect to the MySQL database
@@ -206,7 +209,7 @@ def add_book():
             db.close()
             logging.info("Closed the database connection")
 
-
+# Adming Function: Remove Book from Inventory
 def remove_book():
     try:
         # Connect to the MySQL database
@@ -249,7 +252,7 @@ def remove_book():
             db.close()
             logging.info("Closed the database connection")
 
-
+# Admin Function: Increases the Quantity of a Book in the Inventory
 def add_to_inventory():
     try:
         # Connect to the MySQL database
@@ -299,7 +302,7 @@ def add_to_inventory():
             db.close()
             logging.info("Closed the database connection")
 
-
+# Admin Function: Prints Inventory of Books
 def print_inventory(books):
     # Extract only the title, author, and price from the books data
     book_data = [(book[0], book[1], book[2], book[5], book[6]) for book in books]
@@ -309,7 +312,7 @@ def print_inventory(books):
     print(tabulate(book_data, headers=headers, floatfmt=".2f", tablefmt="pretty"))
     print("")
 
-
+# Admin Function: Get Total Sales, Orders, Customers, Top Selling Books, and Inventory Value
 def get_stats():
     try:
         # Connect to the MySQL database
@@ -380,7 +383,7 @@ def get_stats():
             db.close()
             logging.info("Closed the database connection")
 
-
+# Admin Function: Get All Customers
 def get_customers():
     try:
         # Connect to the MySQL database
@@ -423,7 +426,7 @@ def get_customers():
             db.close()
             logging.info("Closed the database connection")
 
-
+# Admin Function: Get All Orders
 def get_all_orders():
     try:
         # Connect to the MySQL database
